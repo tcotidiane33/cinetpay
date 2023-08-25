@@ -62,9 +62,9 @@ try {
         "customer_phone_number" => "002250769469844", //Le numéro de téléphone du client
         "customer_address" => "Abidjan Cocody RI13", //l'adresse du client
         "customer_city" => "Abidjan", // ville du client
-        "customer_country" => "Côte d'ivoire",//Le pays du client, la valeur à envoyer est le code ISO du pays (code à deux chiffre) ex : CI, BF, US, CA, FR
+        "customer_country" => "CI",//Le pays du client, la valeur à envoyer est le code ISO du pays (code à deux chiffre) ex : CI, BF, US, CA, FR
         "customer_state" => "Lagunes", //L’état dans de la quel se trouve le client. Cette valeur est obligatoire si le client se trouve au États Unis d’Amérique (US) ou au Canada (CA)
-        "customer_zip_code" => "ABIDJAN 01" //Le code postal du client 
+        "customer_zip_code" => "01" //Le code postal du client 
     );
     // enregistrer la transaction dans votre base de donnée
     /*  $commande->create(); */

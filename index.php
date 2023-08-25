@@ -12,7 +12,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-sm-12">
                 <div class="card mx-auto">
-                    <p class="heading">Test pay By KondroNetworks/p>
+                    <p class="heading">Test pay By KondroNetworks</p>
                     <form action="action.php" method="post" class="card-details ">
                         <div class="row">
                             <div class="col-md-6">
