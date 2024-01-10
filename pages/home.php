@@ -1,7 +1,8 @@
-<?php
-// index.php
-include_once 'src/navbar.php'
+<?php 
+include_once '../src/navbar.php';
+
 ?>
+
 
 <html lang="fr">
 
@@ -17,18 +18,19 @@ include_once 'src/navbar.php'
 </head>
 
 <body>
+
     <div class="container">
-        <div class="card mx-auto">
-            <p class="heading">PANIER LIBRARY_CI</p>
-            <!-- Bouton pour passer la commande -->
-            <a href="pages/home.php">Passer la commande</a>
-        </div>
+             
+            <main class="bookList">
+                <section class=" container-fluid mx-auto" id="book-list">
+                </section>
+            </main>
     </div>
 
 
     <!-- Include your JavaScript files here -->
-    <!-- <script type="module" src="./data/data.js"></script>
-    <script type="module" src="./data/app.js"></script> -->
+    <script type="module" src="../data/data.js"></script>
+    <script type="module" src="../data/app.js"></script>
 
     <!-- Scripts Bootstrap (jQuery inclus) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

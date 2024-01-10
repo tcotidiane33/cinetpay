@@ -1,4 +1,7 @@
-<?php include_once 'src/navbar.php'; ?>
+<?php 
+include_once '../src/navbar.php';
+
+?>
 
 <html>
     <head>

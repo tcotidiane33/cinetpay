@@ -1,5 +1,5 @@
 <?php 
-include_once 'src/navbar.php';
+include_once '../src/navbar.php';
 
 ?>
 
