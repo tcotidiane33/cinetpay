@@ -5,16 +5,13 @@ include_once BASE_PATH . '/src/header.php';
 ?>
 
 
+
 <div class="container">
-    <div class="mx-auto">
-        <p class="heading card">WELCOME LIBRARY_CI</p>
-        <!-- Bouton pour passer la commande -->
-        <main class="bookList">
-            <section class=" container-fluid mx-auto" id="book-list">
-            </section>
-        </main>
-        <a href="pages/home.php">Passer la commande</a>
-    </div>
+    <main class="bookList">
+        <section class=" container-fluid mx-auto" id="book-list">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat suscipit ipsum quaerat reprehenderit laudantium, adipisci maiores accusantium asperiores vitae voluptatem culpa?
+        </section>
+    </main>
 </div>
 <!-- Include your JavaScript files here -->
 <script type="module" src="src/data/data.js"></script>
