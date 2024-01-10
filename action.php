@@ -31,9 +31,9 @@ try {
     $site_id = $marchand["site_id"];
 
     //notify url
-    $notify_url = $commande->getCurrentUrl().'cinetpay-sdk-php/notify/notify.php';
+    $notify_url = $commande->getCurrentUrl().'cinetpay/notify/notify.php';
     //return url
-    $return_url = $commande->getCurrentUrl().'cinetpay-sdk-php/return/return.php';
+    $return_url = $commande->getCurrentUrl().'cinetpay/return/return.php';
     $channels = "ALL";
     
     /*information supplémentaire que vous voulez afficher
@@ -47,7 +47,7 @@ try {
 
     //
     $formData = array(
-         "transaction_id"=> $id_transaction,
+        "transaction_id"=> $id_transaction,
         "amount"=> $amount,
         "currency"=> $currency,
         "customer_surname"=> $customer_name,
