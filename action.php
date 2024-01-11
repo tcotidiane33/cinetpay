@@ -15,9 +15,16 @@ try {
     {
         $customer_name = $_POST['customer_name'];
         $customer_surname = $_POST['customer_surname'];
-        $description = $_POST['description'];
-        $amount = $_POST['amount'];
+        $description = isset($_POST['bookDetails']) ? $_POST['bookDetails'] : '';
+        $amount = isset($_POST['amount']) ? $_POST['amount'] : '';
         $currency = $_POST['currency'];
+        $customer_email = $_POST['customer_email'];
+        $customer_phone = $_POST['customer_phone'];	
+        $customer_address = $_POST['customer_address'];
+        $customer_city = $_POST['customer_city'];
+        $customer_country = $_POST['customer_country'];
+        $customer_state = $_POST['customer_state'];
+
     }
     else{
         echo "Veuillez passer par le formulaire";

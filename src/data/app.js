@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       function createBookCard(book) {
         const bookCard = document.createElement('div');
-        bookCard.classList.add('card', 'book-card', 'm-2');
+        bookCard.classList.add('card', 'book-card', 'm-2', 'p-2');
 
         // Créer une div pour la miniature de l'image
         const thumbnailDiv = document.createElement('div');
