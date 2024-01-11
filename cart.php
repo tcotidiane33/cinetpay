@@ -1,70 +1,73 @@
 <?php
 session_start();
-
 define('BASE_PATH', __DIR__);
+
 include_once BASE_PATH . '/src/navbar.php';
 include_once BASE_PATH . '/src/header.php';
+
+// Récupérer les livres sélectionnés de l'URL
+$selectedBooks = isset($_GET['selectedBooks']) ? json_decode(urldecode($_GET['selectedBooks']), true) : [];
+
 ?>
+<?php
 
-<div class="container-fluid">
-    <div class="row d-flex justify-content-center">
-        <div class="col-sm-12">
-            <div class="card mx-auto">
-                <p class="heading">PANIER LIBRARY_CI</p>
-                <!-- Afficher le contenu du panier avec une quantité supérieure à 1 -->
-                <?php displayCart(); ?>
-                <!-- Bouton pour passer la commande -->
+// Lire le contenu de db.json
+$booksData = file_get_contents('src/data/db.json');
+
+// Décoder les données JSON
+$books = json_decode($booksData, true);
+
+// Afficher le contenu pour vérification (vous pouvez le retirer une fois que cela fonctionne)
+// var_dump($books);
+?>
+<div class="container">
+    <div class="mx-auto">
+        <p class="heading card">WELCOME LIBRARY_CI</p>
+
+        <!-- Afficher les détails des livres sélectionnés -->
+        <?php foreach ($selectedBooks as $selectedBook) : ?>
+            <?php
+            // Recherchez le livre correspondant dans le tableau $books
+            $matchingBook = array_values(array_filter($books, function ($book) use ($selectedBook) {
+                return $book['id'] == $selectedBook['id'];
+            }));
+
+            // Vérifiez si un livre correspondant a été trouvé
+            if (!empty($matchingBook)) {
+                $matchingBook = $matchingBook[0];
+            } else {
+                continue; // Passez au livre suivant s'il n'y a pas de correspondance
+            }
+            ?>
+            <div class="book-details">
+                <?php if (isset($matchingBook['BookTitle'])) : ?>
+                    <h2><?php echo $matchingBook['BookTitle']; ?></h2>
+                <?php endif; ?>
+
+                <?php if (isset($matchingBook['BookAuthor'])) : ?>
+                    <p>Author: <?php echo $matchingBook['BookAuthor']; ?></p>
+                <?php endif; ?>
+
+                <?php if (isset($matchingBook['YearOfPublication'])) : ?>
+                    <p>Year of Publication: <?php echo $matchingBook['YearOfPublication']; ?></p>
+                <?php endif; ?>
+
+                <?php if (isset($matchingBook['price'])) : ?>
+                    <p>Price: <?php echo $matchingBook['price']; ?> XOF</p>
+                <?php endif; ?>
+
+                <?php if (isset($selectedBook['quantity'])) : ?>
+                    <p>Quantity: <?php echo $selectedBook['quantity']; ?></p>
+                <?php endif; ?>
             </div>
-        </div>
+
+            <hr>
+        <?php endforeach; ?>
+
+        <!-- Bouton pour passer la commande -->
+        <a class="mx-auto btn btn-info" href="payment.php?selectedBooks=<?php echo urlencode(json_encode($selectedBooks)); ?>">Passer la commande</a>
     </div>
-
-    <!-- Ajoutez une section pour afficher les informations des livres sélectionnés -->
-    <div class="row" id="selected-books"></div>
-
-    <!-- Inclure app.js avant cart.js -->
-    <script type="module" src="src/data/app.js"></script>
-    <script type="module" src="src/data/cart.js"></script>
 </div>
-
 <?php
 include_once 'src/footer.php';
-?>
-
-<?php
-// Fonction pour afficher le panier (vous pouvez remplacer cela par votre propre logique)
-function displayCart()
-{
-    // Assurez-vous d'initialiser la variable $totalPrice avant de l'utiliser
-    $totalPrice = 0;
-
-    foreach ($_SESSION['cart'] as $bookId => $quantity) {
-        if ($quantity > 1) {
-            // Obtenez les informations sur le livre (remplacez cela par votre propre logique)
-            $bookInfo = getBookInfoById($bookId);
-            $bookPrice = $bookInfo['price'];
-            $bookTotalPrice = $bookPrice * $quantity;
-            $totalPrice += $bookTotalPrice;
-
-            // Affichez les informations sur le livre ici
-            echo "Book ID: $bookId, Quantity: $quantity, Price: $bookPrice XOF, Total Price: $bookTotalPrice XOF <br>";
-        }
-    }
-
-    // Affichez le total
-    echo "Total Price: $totalPrice XOF";
-}
-
-// Fonction de démo pour obtenir les informations sur le livre par ID (remplacez cela par votre propre logique)
-function getBoàokInfoById($bookId)
-{
-    // Vous pouvez remplacer cela par une requête SQL ou toute autre logique de récupération de données
-    return [
-        'id' => $bookId,
-        'BookTitle' => "Book $bookId",
-        'BookAuthor' => "Author $bookId",
-        'YearOfPublication' => 2022,
-        'price' => 10
-        // Ajoutez d'autres propriétés nécessaires
-    ];
-}
 ?>

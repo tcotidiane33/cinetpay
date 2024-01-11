@@ -5,13 +5,12 @@ include_once BASE_PATH . '/src/header.php';
 ?>
 
 
-
 <div class="container">
-    <main class="bookList">
-        <section class=" container-fluid mx-auto" id="book-list">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat suscipit ipsum quaerat reprehenderit laudantium, adipisci maiores accusantium asperiores vitae voluptatem culpa?
-        </section>
-    </main>
+    <div class="col-md-4 bg-light p-5 mt-5">
+        <h2>Libracy_ci v0.2</h2>
+        <p>Learn by mistake</p>
+        <p>admin@mail.com</p>
+    </div>
 </div>
 <!-- Include your JavaScript files here -->
 <script type="module" src="src/data/data.js"></script>

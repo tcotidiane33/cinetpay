@@ -13,9 +13,9 @@
         <li class="nav-item">
           <a class="nav-link" href="cart.php">Panier</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="order.php">Commande</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="payment.php">Paiement</a>
         </li>
